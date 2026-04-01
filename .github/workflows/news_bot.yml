@@ -2,11 +2,12 @@ name: 📰 카카오페이손해보험 뉴스봇
 
 on:
   schedule:
-    # 매일 한국시간 오전 8시 실행 (UTC 23시 = KST 08시)
+    # 매일 한국시간 오전 8시 (UTC 23시)
     - cron: '0 23 * * *'
- 
-  # 수동으로도 실행 가능 (GitHub에서 버튼 클릭)
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   scrape-news:
@@ -31,21 +32,40 @@ jobs:
             "company_name": "카카오페이손해보험",
             "keywords": [
               "카카오페이손해보험",
-              "카카오페이손보",
+              "카카오페이 손해보험",
+              "카카오 손해보험",
+              "카카오 보험",
               "카카오페이 보험",
-              "카카오페이",
               "카카오",
+              "카카오페이",
+              "디지털 손해보험",
+              "디지털 보험",
               "손해보험",
-              "디지털손해보험",
-              "디지털 손해보험"
+              "인슈어런스",
+              "테크인슈어런스",
+              "보험혁신",
+              "금감원",
+              "금융위",
+              "금융감독원",
+              "금융위원회",
+              "감독당국",
+              "한국은행",
+              "다이렉트채널",
+              "다이렉트 채널",
+              "CM채널"
             ],
-            "filter_hours": 48,
             "slack_webhook_url": "${{ secrets.SLACK_WEBHOOK_URL }}",
-            "email": {
-              "enabled": false
-            }
+            "github_user": "${{ github.repository_owner }}",
+            "github_repo": "kakao-news-bot"
           }
           EOF
 
-      - name: 📰 뉴스 수집 및 슬랙 전송
+      - name: 📰 뉴스 수집 및 HTML 생성
         run: python news_scraper.py
+
+      - name: 🌐 GitHub Pages에 저장
+        run: |
+          git config user.name "News Bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add docs/ sent_articles.json
+          git diff --staged --quiet || (git commit -m "📰 뉴스 업데이트 $(date +%Y-%m-%d)" && git push)
