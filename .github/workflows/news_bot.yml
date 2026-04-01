@@ -52,7 +52,8 @@ jobs:
               "한국은행",
               "다이렉트채널",
               "다이렉트 채널",
-              "CM채널"
+              "CM채널",
+              "화재보험"
             ],
             "slack_webhook_url": "${{ secrets.SLACK_WEBHOOK_URL }}",
             "github_user": "${{ github.repository_owner }}",
