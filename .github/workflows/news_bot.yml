@@ -1,0 +1,51 @@
+name: 📰 카카오페이손해보험 뉴스봇
+
+on:
+  schedule:
+    # 매일 한국시간 오전 8시 실행 (UTC 23시 = KST 08시)
+    - cron: '0 23 * * *'
+ 
+  # 수동으로도 실행 가능 (GitHub에서 버튼 클릭)
+  workflow_dispatch:
+
+jobs:
+  scrape-news:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 코드 가져오기
+        uses: actions/checkout@v4
+
+      - name: 🐍 파이썬 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 📦 패키지 설치
+        run: pip install requests beautifulsoup4 feedparser
+
+      - name: ⚙️ 설정 파일 생성
+        run: |
+          cat > config.json << 'EOF'
+          {
+            "company_name": "카카오페이손해보험",
+            "keywords": [
+              "카카오페이손해보험",
+              "카카오페이손보",
+              "카카오페이 보험",
+              "카카오페이",
+              "카카오",
+              "손해보험",
+              "디지털손해보험",
+              "디지털 손해보험"
+            ],
+            "filter_hours": 48,
+            "slack_webhook_url": "${{ secrets.SLACK_WEBHOOK_URL }}",
+            "email": {
+              "enabled": false
+            }
+          }
+          EOF
+
+      - name: 📰 뉴스 수집 및 슬랙 전송
+        run: python news_scraper.py
