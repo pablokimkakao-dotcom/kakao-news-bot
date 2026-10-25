@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>카카오페이손해보험 뉴스 브리핑 - 2026년 10월 25일</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg:#f5f6f8; --white:#ffffff; --border:#e8eaed;
+    --text:#1d1d1f; --text2:#6e6e73; --text3:#aeaeb2;
+    --accent:#1d6ce0; --accent-bg:#eef4fd; --accent-border:#c5d9f5;
+    --hot:#e8453c; --hot-bg:#fef2f1;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text)}
+
+.app{height:100vh;display:flex;flex-direction:column}
+
+/* Header */
+.hdr{padding:16px 24px;background:var(--white);border-bottom:1px solid var(--border);
+      display:flex;align-items:center;justify-content:space-between;flex-shrink:0;flex-wrap:wrap;gap:8px}
+.hdr-l{display:flex;align-items:center;gap:10px}
+.logo{width:32px;height:32px;background:#fee500;border-radius:7px;
+       display:flex;align-items:center;justify-content:center;font-size:16px}
+.hdr h1{font-size:16px;font-weight:700}
+.hdr-r{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--text2)}
+.period{background:#f8f4e8;border:1px solid #e8dfc0;color:#8b7a3c;
+         padding:3px 10px;border-radius:14px;font-size:11px;
+         font-family:'JetBrains Mono',monospace;font-weight:500}
+.stat-n{color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:600;font-size:14px}
+
+/* Main */
+.main{flex:1;display:flex;overflow:hidden}
+
+/* Left panel */
+.left{width:380px;min-width:320px;border-right:1px solid var(--border);
+       background:var(--white);display:flex;flex-direction:column;flex-shrink:0}
+.left-title{padding:14px 20px 10px;font-size:12px;font-weight:600;color:var(--text3);
+             text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border);flex-shrink:0}
+.topic-list{flex:1;overflow-y:auto}
+
+.topic-item{padding:14px 20px;border-bottom:1px solid #f2f3f5;cursor:pointer;
+             transition:background .1s;display:flex;align-items:flex-start;gap:12px}
+.topic-item:hover{background:#fafbfc}
+.topic-item.active{background:var(--accent-bg);border-left:3px solid var(--accent)}
+
+.topic-count{flex-shrink:0;min-width:32px;height:22px;display:flex;align-items:center;
+              justify-content:center;border-radius:6px;font-size:11px;font-weight:700;margin-top:1px}
+.topic-count.multi{background:var(--accent);color:#fff}
+.topic-count.hot{background:var(--hot);color:#fff}
+.topic-count.single{background:#f0f0f2;color:var(--text2)}
+
+.topic-info{flex:1;min-width:0}
+.topic-name{font-size:13px;font-weight:500;line-height:1.5;
+             display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.topic-sources{font-size:11px;color:var(--text3);margin-top:3px;
+                white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Right panel */
+.right{flex:1;background:var(--bg);display:flex;flex-direction:column;overflow:hidden}
+.right-empty{flex:1;display:flex;align-items:center;justify-content:center;
+              color:var(--text3);font-size:14px;flex-direction:column;gap:8px}
+.right-empty-icon{font-size:36px;opacity:.4}
+
+.right-header{padding:18px 24px 14px;background:var(--white);
+               border-bottom:1px solid var(--border);flex-shrink:0}
+.right-topic{font-size:16px;font-weight:700;color:var(--accent)}
+.right-count{font-size:12px;color:var(--text2);margin-top:3px}
+
+.article-list{flex:1;overflow-y:auto;padding:8px 0}
+.article-row{display:block;text-decoration:none;color:inherit;padding:14px 24px;
+              margin:0 12px 6px;background:var(--white);border-radius:10px;
+              border:1px solid var(--border);transition:all .15s}
+.article-row:hover{border-color:var(--accent-border);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.article-row:hover .a-title{color:var(--accent)}
+
+.a-meta{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.a-origin{font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;color:#fff}
+.a-origin.구글뉴스{background:#4285f4}.a-origin.네이버{background:#03c75a}.a-origin.전문매체{background:#f09000}
+.a-source{font-size:11px;color:var(--text2)}
+.a-date{font-size:11px;color:var(--text3);margin-left:auto}
+.a-title{font-size:14px;line-height:1.55;transition:color .12s}
+.a-arrow{opacity:0;margin-left:3px;font-size:11px;transition:opacity .12s}
+.article-row:hover .a-arrow{opacity:1}
+
+/* Empty state */
+.empty-full{flex:1;display:flex;align-items:center;justify-content:center;
+             color:var(--text3);font-size:14px;flex-direction:column;gap:8px}
+.empty-full-icon{font-size:44px}
+
+/* Mobile */
+@media(max-width:768px){
+    .main{flex-direction:column}
+    .left{width:100%;min-width:auto;border-right:none;border-bottom:1px solid var(--border);max-height:45vh}
+    .right{max-height:55vh}
+    .hdr{padding:12px 14px}
+    .hdr h1{font-size:14px}
+}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#d0d0d4;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="app">
+    <header class="hdr">
+        <div class="hdr-l">
+            <div class="logo">📰</div>
+            <h1>카카오페이손해보험 뉴스 브리핑</h1>
+        </div>
+        <div class="hdr-r">
+            <span class="period">2026.10.25 08:00 ~ 2026.10.26 07:59</span>
+            <span><span class="stat-n">6</span> 기사</span>
+            <span><span class="stat-n">6</span> 토픽</span>
+        </div>
+    </header>
+
+    
+
+    <div class="main" >
+        <div class="left">
+            <div class="left-title">토픽 목록</div>
+            <div class="topic-list" id="topicList"></div>
+        </div>
+        <div class="right" id="rightPanel">
+            <div class="right-empty">
+                <div class="right-empty-icon">←</div>
+                <div>왼쪽 토픽을 선택하세요</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const D=[{"topic": "공주시, ㈜카카오 ‘곳곳산책 공주’ 관람객 열풍", "count": 1, "articles": [{"title": "공주시, ㈜카카오 ‘곳곳산책 공주’ 관람객 열풍 - 일간투데이", "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE4tLS1tVVFpeUdpRm9EUzRmRXplOGE5d2hEWjljZ05kc3dLRFJNSGNldXo0cmM3NEFSelB6N01ZdlpGUUJkME96YzEyOHZUTk1vMHZleUZlRDdETVlISG94eEdrV1dzbXBvelhR?oc=5", "source": "일간투데이", "date": "2026-10-25 09:30", "origin": "구글뉴스"}]}, {"topic": "부산시, 부캉이 카카오톡 이모티콘 무료 배포…시정 소식 전달 강화", "count": 1, "articles": [{"title": "부산시, 부캉이 카카오톡 이모티콘 무료 배포…시정 소식 전달 강화 - 뉴스핌", "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE81elRGZHRCdFZET0Fqa0xQOEhzOUw2ZmM4UjhsdzluN1ZiYU90VEFfWkZLZ3ppaGNqUnQ0YU8wWllTT2dmRFpXSDR4Rk5DMmREYVBfWG1vUGRtR29S?oc=5", "source": "뉴스핌", "date": "2026-10-25 09:42", "origin": "구글뉴스"}]}, {"topic": "카카오게임즈 신작 매출 1위…내년 1분기 흑자 시험대", "count": 1, "articles": [{"title": "카카오게임즈 신작 매출 1위…내년 1분기 흑자 시험대 - 자본시장뉴스", "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE03ODVLZDg4ZmpfREN3Q3A4SV9kN3p2U2NVOUVDYXdPSW8xWWR5VXZ2OXRZT1BSaENOczMxTkNZbVdkeDJleWxPU3FBUmFDVXpKNXdHX1ZMdUhlUmpRTjdXZG9PRG54RkU?oc=5", "source": "자본시장뉴스", "date": "2026-10-25 09:30", "origin": "구글뉴스"}]}, {"topic": "재경부 &#39;금융위 견제설&#39;에 연임용 소송 논란까지…수협은행장 인선 &#39;점입가경&#39;", "count": 1, "articles": [{"title": "재경부 &#39;금융위 견제설&#39;에 연임용 소송 논란까지…수협은행장 인선 &#39;점입가경&#39; - 아시아경제", "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5nWjh5S1pwdzR6OUtoQTN3STdSeVpMenhXY2NTWEplTTVkc0lNX0FCT3c0LVpnYkp5TUphQm5MSFVzaWRoX05OQldjdmZ5RkowUTVhUml5amYxbkhEWlZCSA?oc=5", "source": "아시아경제", "date": "2026-10-25 08:56", "origin": "구글뉴스"}]}, {"topic": "[은행과 생활]① 한은 76년…경제성장 지원군에서 &#39;물가·금융안정&#39; 사령부로", "count": 1, "articles": [{"title": "[은행과 생활]① 한은 76년…경제성장 지원군에서 &#39;물가·금융안정&#39; 사령부로 - 파이낸셜포스트", "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFA0Z25GZ2ZGM2w2VlFDT0h4eElQaXd0NksxRl9Yd2lldkNmQ3ZPNklIaE4ta3ZOZjluVnYzTWpxTTBXWWR3ZWU4SnBXWnhTQV80eGJKQmRMdTJxUFdNREdyRjRRQWEtNTByRWdoSHd0Sjc1SGpz?oc=5", "source": "파이낸셜포스트", "date": "2026-10-25 08:00", "origin": "구글뉴스"}]}, {"topic": "고금리에 연체율 비상…취약차주부터 부실 위험 커진다[긴축 청구서③]", "count": 1, "articles": [{"title": "고금리에 연체율 비상…취약차주부터 부실 위험 커진다[긴축 청구서③] - 뉴시스", "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9IR0R2eG1hZF90dkVZZTZEVl9CZVkwazZQUzMzYWdoWjZuZ1diN09jQjJZcVBoelV6UkVaTHB1Ny1LSjZFbWJKeGhzVktoWW1nZDNVQkNFTEVBcmx5ckNCZ9IBeEFVX3lxTFBReU1meDJaWFlUcndFVFVVZnY3aFZLZDI4bkpVMXhpRzBFWXpHaUF0dXpjTk5qZmtjQWpfMjhwT3dIUTFlZXExNFl1TnhiWnl6akRoWEQwMTVfdUNvSjhncmNqbDBfbTFNa1Jsa0dERXhQRV94VzEwRw?oc=5", "source": "뉴시스", "date": "2026-10-25 08:00", "origin": "구글뉴스"}]}];
+const list=document.getElementById('topicList');
+D.forEach((g,i)=>{
+    const div=document.createElement('div');
+    div.className='topic-item';
+    div.onclick=()=>selectTopic(i);
+    div.id='topic-'+i;
+    const cc=g.count>=5?'hot':g.count>1?'multi':'single';
+    const src=[...new Set(g.articles.map(a=>a.source))].slice(0,3).join(' · ');
+    const tn=g.topic.length>45?g.topic.slice(0,45)+'…':g.topic;
+    div.innerHTML=`<span class="topic-count ${cc}">${g.count}</span>
+        <div class="topic-info"><div class="topic-name">${tn}</div>
+        <div class="topic-sources">${src}</div></div>`;
+    list.appendChild(div);
+});
+function selectTopic(idx){
+    document.querySelectorAll('.topic-item').forEach(el=>el.classList.remove('active'));
+    document.getElementById('topic-'+idx).classList.add('active');
+    const g=D[idx],panel=document.getElementById('rightPanel');
+    let h='';
+    g.articles.forEach(a=>{
+        h+=`<a href="${a.link}" target="_blank" rel="noopener" class="article-row">
+            <div class="a-meta"><span class="a-origin ${a.origin}">${a.origin}</span>
+            <span class="a-source">${a.source}</span><span class="a-date">${a.date}</span></div>
+            <div class="a-title">${a.title} <span class="a-arrow">↗</span></div></a>`;
+    });
+    panel.innerHTML=`<div class="right-header"><div class="right-topic">${g.topic}</div>
+        <div class="right-count">${g.count}건의 관련 기사</div></div>
+        <div class="article-list">${h}</div>`;
+}
+if(D.length>0)selectTopic(0);
+</script>
+</body>
+</html>
