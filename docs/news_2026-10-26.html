@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>카카오페이손해보험 뉴스 브리핑 - 2026년 10월 26일</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg:#f5f6f8; --white:#ffffff; --border:#e8eaed;
+    --text:#1d1d1f; --text2:#6e6e73; --text3:#aeaeb2;
+    --accent:#1d6ce0; --accent-bg:#eef4fd; --accent-border:#c5d9f5;
+    --hot:#e8453c; --hot-bg:#fef2f1;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text)}
+
+.app{height:100vh;display:flex;flex-direction:column}
+
+/* Header */
+.hdr{padding:16px 24px;background:var(--white);border-bottom:1px solid var(--border);
+      display:flex;align-items:center;justify-content:space-between;flex-shrink:0;flex-wrap:wrap;gap:8px}
+.hdr-l{display:flex;align-items:center;gap:10px}
+.logo{width:32px;height:32px;background:#fee500;border-radius:7px;
+       display:flex;align-items:center;justify-content:center;font-size:16px}
+.hdr h1{font-size:16px;font-weight:700}
+.hdr-r{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--text2)}
+.period{background:#f8f4e8;border:1px solid #e8dfc0;color:#8b7a3c;
+         padding:3px 10px;border-radius:14px;font-size:11px;
+         font-family:'JetBrains Mono',monospace;font-weight:500}
+.stat-n{color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:600;font-size:14px}
+
+/* Main */
+.main{flex:1;display:flex;overflow:hidden}
+
+/* Left panel */
+.left{width:380px;min-width:320px;border-right:1px solid var(--border);
+       background:var(--white);display:flex;flex-direction:column;flex-shrink:0}
+.left-title{padding:14px 20px 10px;font-size:12px;font-weight:600;color:var(--text3);
+             text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border);flex-shrink:0}
+.topic-list{flex:1;overflow-y:auto}
+
+.topic-item{padding:14px 20px;border-bottom:1px solid #f2f3f5;cursor:pointer;
+             transition:background .1s;display:flex;align-items:flex-start;gap:12px}
+.topic-item:hover{background:#fafbfc}
+.topic-item.active{background:var(--accent-bg);border-left:3px solid var(--accent)}
+
+.topic-count{flex-shrink:0;min-width:32px;height:22px;display:flex;align-items:center;
+              justify-content:center;border-radius:6px;font-size:11px;font-weight:700;margin-top:1px}
+.topic-count.multi{background:var(--accent);color:#fff}
+.topic-count.hot{background:var(--hot);color:#fff}
+.topic-count.single{background:#f0f0f2;color:var(--text2)}
+
+.topic-info{flex:1;min-width:0}
+.topic-name{font-size:13px;font-weight:500;line-height:1.5;
+             display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.topic-sources{font-size:11px;color:var(--text3);margin-top:3px;
+                white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Right panel */
+.right{flex:1;background:var(--bg);display:flex;flex-direction:column;overflow:hidden}
+.right-empty{flex:1;display:flex;align-items:center;justify-content:center;
+              color:var(--text3);font-size:14px;flex-direction:column;gap:8px}
+.right-empty-icon{font-size:36px;opacity:.4}
+
+.right-header{padding:18px 24px 14px;background:var(--white);
+               border-bottom:1px solid var(--border);flex-shrink:0}
+.right-topic{font-size:16px;font-weight:700;color:var(--accent)}
+.right-count{font-size:12px;color:var(--text2);margin-top:3px}
+
+.article-list{flex:1;overflow-y:auto;padding:8px 0}
+.article-row{display:block;text-decoration:none;color:inherit;padding:14px 24px;
+              margin:0 12px 6px;background:var(--white);border-radius:10px;
+              border:1px solid var(--border);transition:all .15s}
+.article-row:hover{border-color:var(--accent-border);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.article-row:hover .a-title{color:var(--accent)}
+
+.a-meta{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.a-origin{font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;color:#fff}
+.a-origin.구글뉴스{background:#4285f4}.a-origin.네이버{background:#03c75a}.a-origin.전문매체{background:#f09000}
+.a-source{font-size:11px;color:var(--text2)}
+.a-date{font-size:11px;color:var(--text3);margin-left:auto}
+.a-title{font-size:14px;line-height:1.55;transition:color .12s}
+.a-arrow{opacity:0;margin-left:3px;font-size:11px;transition:opacity .12s}
+.article-row:hover .a-arrow{opacity:1}
+
+/* Empty state */
+.empty-full{flex:1;display:flex;align-items:center;justify-content:center;
+             color:var(--text3);font-size:14px;flex-direction:column;gap:8px}
+.empty-full-icon{font-size:44px}
+
+/* Mobile */
+@media(max-width:768px){
+    .main{flex-direction:column}
+    .left{width:100%;min-width:auto;border-right:none;border-bottom:1px solid var(--border);max-height:45vh}
+    .right{max-height:55vh}
+    .hdr{padding:12px 14px}
+    .hdr h1{font-size:14px}
+}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#d0d0d4;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="app">
+    <header class="hdr">
+        <div class="hdr-l">
+            <div class="logo">📰</div>
+            <h1>카카오페이손해보험 뉴스 브리핑</h1>
+        </div>
+        <div class="hdr-r">
+            <span class="period">2026.10.26 08:00 ~ 2026.10.27 07:59</span>
+            <span><span class="stat-n">22</span> 기사</span>
+            <span><span class="stat-n">18</span> 토픽</span>
+        </div>
+    </header>
+
+    
+
+    <div class="main" >
+        <div class="left">
+            <div class="left-title">토픽 목록</div>
+            <div class="topic-list" id="topicList"></div>
+        </div>
+        <div class="right" id="rightPanel">
+            <div class="right-empty">
+                <div class="right-empty-icon">←</div>
+                <div>왼쪽 토픽을 선택하세요</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const D=[{"topic": "하반기", "count": 4, "articles": [{"title": "KB손해보험, 하반기 신입사원 공개채용…AI·데이터 인재 확보 - 아주경제", "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1BOFd1RHRFUGxjdk0tQlVYNVdWUXdUSVppTEt4dUNSTzY4TXVELWJiSC1sRTgwSzE4T2ZscTdOcFdBYXYxa1dHV0VEZl95YmFmdGdzbGhCSnlnUdIBWEFVX3lxTE5CRm1MSEF6ZFRoUnNFY25ESlVuRExjUXdxdXVKWGZ6OWRLb0JhaGhuOWFvRDVOem1mZi13NXdYNnFHOVpZYWZ2Zy1JemdocVhSSWROS3oydlA?oc=5", "source": "아주경제", "date": "2026-10-26 09:32", "origin": "구글뉴스"}, {"title": "[게시판] KB손보, 하반기 신입사원 공개 채용 - 연합뉴스", "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOajlQNVlRUXVHeElCenFFS05QVzljeWViNW5zS05haVo4cWJFZ1RFZlBoeXRXRjJpOWdlZS1kNTh2eDM1LXBaTHJnTW52RGk2dWhhN0tYVHBpX1hSa1RmT1Qtbkstb04wZENRWmtNSGxvc0dsUFU1eUdIVzJtdlQxN0lGaXQ?oc=5", "source": "연합뉴스", "date": "2026-10-26 09:37", "origin": "구글뉴스"}, {"title": "KB손해보험, 하반기 공개채용 돌입…내달 1일 마감 - 파이낸셜포스트", "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1JLV96a1ZjZGotUkhmMWpoQTEtZ0hhMmhGXzJROERFTkVnMm1yUGVNVi0yZTc1Zl9XcWM5bWhTeGlPYTQ5OXpjT292N25LMElxVHp2Nk96TlJZblNCSkZ1YlNqb085N2pqUmg4TmRWWGR1MkRj?oc=5", "source": "파이낸셜포스트", "date": "2026-10-26 09:28", "origin": "구글뉴스"}, {"title": "KB손보, 하반기 신입사원 공개채용…&quot;11월 1일까지 서류접수&quot; - 뉴스드림", "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBUank3bU1ZeVFBVXROT3lIb3lCRWVadVVhX1NIS1p3UmVrRVc0ZFljTUhhU1R4ODhmdjR2aFZwVG1SNWwyTkkwbXM3N2o5aGJyNkZfYjVBUXpZNldmQXNqMGRuX2s0OEJ6cXU4?oc=5", "source": "뉴스드림", "date": "2026-10-26 09:11", "origin": "구글뉴스"}]}, {"topic": "주식", "count": 2, "articles": [{"title": "&quot;카카오페이, 주식 거래대금 감소에 3Q 영업익 전망치 밑돌 듯&quot;-한투 - 머니투데이 - 머니투데이", "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE91QUtnY25QOXRDemVOZjA4bFFrUWtMMWJnTU9xb2diTDFYYkkyZi1NMHFJMnNMOUpaQnlpaVo0WWc5T2V5UFg5MWRCdXFjeVFuemVLUFF5N2pNd2JsaTN2WGNFZW5wR1dM0gFuQVVfeXFMUG9rY1Bmbm9ZQ2x1NEVlaXpWZ0luZndzYVN3YlprZ2J2eHlFTE0zSjZ0dGxpMnBBM2I3YXBNUk9IbXJGMXQ4b2VCc3N1Z1pkcW50akdvOWMxMW9FQjg4UEh1NGhHRy1aM3NvdUxKZkE?oc=5", "source": "머니투데이", "date": "2026-10-26 08:43", "origin": "구글뉴스"}, {"title": "카카오페이, 주식 거래 위축에 3분기 실적 &#39;주춤&#39;…새 성장동력 절실 - 프라임경제", "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFB1YUVwNl9Uck1tR3JaUHdLYjFscDJzV0FDYXlRYTJ6ZjAzUlE5WV81eEJTc3daM2diSFJZZkw0VENldjZGcTdJdmx3dTJZbW5JOU5sOHZteTN2NEZUVkdzbkhNbC1WUlRoeUFGMA?oc=5", "source": "프라임경제", "date": "2026-10-26 08:52", "origin": "구글뉴스"}]}, {"topic": "이륜차 정기검사, 카카오내비서 예약 가능해진다", "count": 1, "articles": [{"title": "이륜차 정기검사, 카카오내비서 예약 가능해진다 - 파이낸셜뉴스", "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBSTUtiUGlYNVZ4QVBLWmszRFJtZ3lpdTQ3aXBCSS1hU3BXVXhMT2hwNmdMeHQzMXVlQUdDYk1rOWpiQVkyOEFYZGdVQnpqLUppY3J4NVYyYW45Zw?oc=5", "source": "파이낸셜뉴스", "date": "2026-10-26 09:32", "origin": "구글뉴스"}]}, {"topic": "카카오뱅크, ‘함께 만드는 독서 습관’ 제휴 서비스 출시", "count": 1, "articles": [{"title": "카카오뱅크, ‘함께 만드는 독서 습관’ 제휴 서비스 출시 - 매일일보", "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9NZUotSWJLQ1lmVTVib05MUExvSGhwWjFPMWF2MnBLWVBlOEFJam5DQWZKZ1BjOWU5SEJIQWk0NU9MT2Z0Ukh5RjZRZ2FwcXhVUUxmeE16ZmRaNTJTVE5oVWRlc18?oc=5", "source": "매일일보", "date": "2026-10-26 09:13", "origin": "구글뉴스"}]}, {"topic": "[르포]&quot;김천김밥축제선 줄 안서요&quot;…카카오페이 &#39;QR 오더&#39;가 바꾼 풍경", "count": 1, "articles": [{"title": "[르포]&quot;김천김밥축제선 줄 안서요&quot;…카카오페이 &#39;QR 오더&#39;가 바꾼 풍경 - 비즈워치", "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1NLS1wRE1SdTFGYjUtanhZX2l5YWg1ZHVjaERmNzBsSTlmWWJ3Yk5yUHN5OGdsZy1rT3lmT193Rkh3blRpVEVCVUF5NGltWGwzT3BiWXFpaFk0d1haU3dvN0RTaTBOa1ZmUEpn?oc=5", "source": "비즈워치", "date": "2026-10-26 08:00", "origin": "구글뉴스"}]}, {"topic": "카카오 AI 에이전트, 대화를 매출로…광고·거래 수수료가 승부처", "count": 1, "articles": [{"title": "카카오 AI 에이전트, 대화를 매출로…광고·거래 수수료가 승부처 - 딜사이트", "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5nUUtWNmplaThMcnV2OUZBeWNpUndKUF9jRTB5NzRfQnQxVWtLUXBQX2syNXMxdFhYOEN6bW84RzRDTnpLYWNLYkM3UHZVNW8?oc=5", "source": "딜사이트", "date": "2026-10-26 09:00", "origin": "구글뉴스"}]}, {"topic": "한국벤처투자, LP성장펀드 산업안전 분야 카카오벤처스 등 GP 3곳 확정", "count": 1, "articles": [{"title": "한국벤처투자, LP성장펀드 산업안전 분야 카카오벤처스 등 GP 3곳 확정 - www.numbers.co.kr", "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBxb2hRU2pYdVduQ0w1eVNGaUdkTENmX21zZXhZcHFWanlwcm92T3I2NVo3WEp5Tk1yMmFEaTFmZ1k0ZzJkVVBBbC1qWFJBSUhNdU9nTXBVODlLUzladDF0c21SYm9JYzdFMkdZ?oc=5", "source": "www.numbers.co.kr", "date": "2026-10-26 09:18", "origin": "구글뉴스"}]}, {"topic": "주식 거래대금 위축에 카카오페이 &#39;급브레이크&#39;…다음 성장 카드는", "count": 1, "articles": [{"title": "주식 거래대금 위축에 카카오페이 &#39;급브레이크&#39;…다음 성장 카드는 - 파이낸셜뉴스", "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1Ecy00alNuMVlkZFpqSHRUTldxdkRXS0hTN2xLTEJkZHdUeER5aURRSnpuazR1c2l6YmVSNXd2WGNoeFh4MXRZUlpLeS1xc3lxZm5ETVdUT1o2dw?oc=5", "source": "파이낸셜뉴스", "date": "2026-10-26 08:15", "origin": "구글뉴스"}]}, {"topic": "카카오페이, 증권 리테일 감소 여파로 아쉬운 3분기", "count": 1, "articles": [{"title": "카카오페이, 증권 리테일 감소 여파로 아쉬운 3분기 - 메디컬투데이", "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBWU1lXMHhqZkFEYkJLTzV6NDVxVXkxRklpMUljVXFkMVZ6WXYtc2RTTDZ6eDNvQ29wTVd6SzdrQzVHc3F3bkl0OF9sWWhYcExHM2JwTG9BZkVrNHpsd1N6bVhqS0RiQnRWalYwcw?oc=5", "source": "메디컬투데이", "date": "2026-10-26 09:17", "origin": "구글뉴스"}]}, {"topic": "한국투자증권 &quot;카카오페이 실적 회복세 미확인…목표가 중립&quot;", "count": 1, "articles": [{"title": "한국투자증권 &quot;카카오페이 실적 회복세 미확인…목표가 중립&quot; - 중앙신문", "link": "https://news.google.com/rss/articles/CBMi9AJBVV95cUxQMEdJTTRjSTJ2TWJOdlVqQ2FnX1UtM1RhYjBpMWVoRWF3R1hlWi1kbllTX0RaUDNybkxCTVB1WUFXc1lHN2d4YVkzeWxseGViVEg0R2Jia1NlSzNmcjRySVVhNlF0cUFIWVY2amt1VS1qZ2FWUG5uOXBfMzE4MTNKWldzZjRyRl9kRXluNjBNYlZNelY0Q0hQQ21oWmtyR2toQ0NQTGZaN1QzemdQbjZtNkhYSEh2bUs3MjV0b0JscGVvVnBwRzJQZ2tlMnhqc3FvUm9MdmFOa3BhcHNJVS1lZTI4LVdpVXhLaXB1a3N6NTdHT2xVQ1JLQ2FpbXBYV3ZTNUJCZktYcGZ2R0tVeWI4OVhWR1U2V3BRRHJpTTBaWEREYVFLS0hyWkw3NWNpYlFDYV9CeTlIeUt6SDFxcm1GTTJUVENrZ1NMRVk0UjhhdG1BcWxQQWhpbUF0SDVmQmVzMnUyYUFRa1ZvSE1CUXpEQ0hkR0c?oc=5", "source": "중앙신문", "date": "2026-10-26 08:21", "origin": "구글뉴스"}]}, {"topic": "금감원, 간호조무사 보험사기 예방교육…내년 1분기 시행", "count": 1, "articles": [{"title": "금감원, 간호조무사 보험사기 예방교육…내년 1분기 시행 - 신아일보", "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE0taDd5NjFfbk5DV2Z2SUMzV2plVUVpdEp2UTVkOEdxMGc1dXNuUUFtTjBsdWZwaDBrcktVZlFadXVmOEF5dXU3NE1IN2taM1pJQ0lEc1lsX251dzFaai0zY2U0QlhwLWFBelBpRWx3SXY?oc=5", "source": "신아일보", "date": "2026-10-26 09:18", "origin": "구글뉴스"}]}, {"topic": "금감원, 제재 쌓이고 수시검사 늘고…정작 정기검사는?", "count": 1, "articles": [{"title": "금감원, 제재 쌓이고 수시검사 늘고…정작 정기검사는? - 비즈워치", "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE8tQUp1QXlRb0tzUGFuWVE4ejY0TXZva1BLb3hnYnVPc1RkOXVqR080RG9tRGhaWThrUDIwQUkxSGU0OE1YRklLVHhEY2I5WThwVFNDbUM0RmVrQWtoZExtdEdNM2NNT2d4ZHh3?oc=5", "source": "비즈워치", "date": "2026-10-26 09:30", "origin": "구글뉴스"}]}, {"topic": "금융위 부위원장 오른 신진창…첫 미션 &#39;증시 정상화&#39; 주문", "count": 1, "articles": [{"title": "금융위 부위원장 오른 신진창…첫 미션 &#39;증시 정상화&#39; 주문 - 연합인포맥스", "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE85cmtOcFJKbGIweC1sRlMwdmVneEhoemJvRG83cWpkV2x3Y0tFSlhRek80ejNSbHRaajRFWUhnWjk2cmhyblhIVWc3X3NBa0pkb2xyZFp4SGtrdDZjWTl4Ylk5NmNEOU9lWlBYYXAxX3U?oc=5", "source": "연합인포맥스", "date": "2026-10-26 08:31", "origin": "구글뉴스"}]}, {"topic": "[2026 국감] 부당대출·대리서명 반복되는 금융사고…&quot;회수가 문제가 아니지 않느냐&quot;", "count": 1, "articles": [{"title": "[2026 국감] 부당대출·대리서명 반복되는 금융사고…&quot;회수가 문제가 아니지 않느냐&quot; - 알티케이뉴스", "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBkYXRHVDFEVk1mM085LTFxNGQ2UWZZWHV6RFlvTUdzZTdGWHhoMnpRYmJMdGNqMTJkcE5CczVNS19od0dpdFlTOWREelRUMUQ1WWw1emdVWDZ5UEgwcmMzRjRDcUw4Vm9RaXprVQ?oc=5", "source": "알티케이뉴스", "date": "2026-10-26 08:10", "origin": "구글뉴스"}]}, {"topic": "&quot;현금 전달하면 40만원&quot; 고수익 알바의 덫…알바 가장한 자금수거책·통장양도 주의보", "count": 1, "articles": [{"title": "&quot;현금 전달하면 40만원&quot; 고수익 알바의 덫…알바 가장한 자금수거책·통장양도 주의보 - 조선일보", "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOUVloSFFPRXNBTnYzZEhrYjVsaUh3WVI4R3dGVF8xMWZtSE9VRHpjcmpvMGt6UldsQ3NWY2g5V1J6QzZiaERJRmVRam5sbHdSTWdKWXUzVEZ6MjZfQ180dmdYdlBZdm9kU1J2eWlVaXBNaDluMWJfZWg3UGRKQTNjZXFaQlVBLWRyWHFkSmFn?oc=5", "source": "조선일보", "date": "2026-10-26 08:40", "origin": "구글뉴스"}]}, {"topic": "“고액 알바인 줄 알았는데”…금감원, 범죄 연루 취업사기 주의보", "count": 1, "articles": [{"title": "“고액 알바인 줄 알았는데”…금감원, 범죄 연루 취업사기 주의보 - 서울경제TV", "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE94M2dVSFpYWjJDSkJmWkhsYUZYdUJkRUVkSzB2MC00SFNXbkk0RlBDeW96Q05IX1lsLW56UjhhQzI4Z2JHbTlBc29IX25SaURaWmRYdm1UMEZjUHloNjZ3eTI4aFo?oc=5", "source": "서울경제TV", "date": "2026-10-26 09:20", "origin": "구글뉴스"}]}, {"topic": "신현송·박홍근 언급한 석유 최고가격제…금리 흔들 변수 될까", "count": 1, "articles": [{"title": "신현송·박홍근 언급한 석유 최고가격제…금리 흔들 변수 될까 - KB Think", "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9iWjktOE5MN254QVVqRjZldGdrN0NPbF9PbjJNWDRnd3EySmJQY1NKd08tTC1qXzIwWGdrYm1zajhGLS1ndVNDQmFsaHNMMWpORWp2QllJYklma2NFc2xBTng2SHZfTDZrODE2aVpqd1ZZQQ?oc=5", "source": "KB Think", "date": "2026-10-26 09:49", "origin": "구글뉴스"}]}, {"topic": "10·15 대책 1년, 서울 집값 10% 올랐다… 토허제 연말 연장될까", "count": 1, "articles": [{"title": "10·15 대책 1년, 서울 집값 10% 올랐다… 토허제 연말 연장될까 - 네이버페이 머니스토리", "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBRdkZHN2lFLWJWS0d6amNTOUMtY01iTW5fTXhaOVhkc21YLUc5UE5wam04SWlGNm9qbnUzNnJKQUhlaW1rREZDRHJWLVVMRXlLSkNxRU4tM1hRYTQ?oc=5", "source": "네이버페이 머니스토리", "date": "2026-10-26 08:40", "origin": "네이버"}]}];
+const list=document.getElementById('topicList');
+D.forEach((g,i)=>{
+    const div=document.createElement('div');
+    div.className='topic-item';
+    div.onclick=()=>selectTopic(i);
+    div.id='topic-'+i;
+    const cc=g.count>=5?'hot':g.count>1?'multi':'single';
+    const src=[...new Set(g.articles.map(a=>a.source))].slice(0,3).join(' · ');
+    const tn=g.topic.length>45?g.topic.slice(0,45)+'…':g.topic;
+    div.innerHTML=`<span class="topic-count ${cc}">${g.count}</span>
+        <div class="topic-info"><div class="topic-name">${tn}</div>
+        <div class="topic-sources">${src}</div></div>`;
+    list.appendChild(div);
+});
+function selectTopic(idx){
+    document.querySelectorAll('.topic-item').forEach(el=>el.classList.remove('active'));
+    document.getElementById('topic-'+idx).classList.add('active');
+    const g=D[idx],panel=document.getElementById('rightPanel');
+    let h='';
+    g.articles.forEach(a=>{
+        h+=`<a href="${a.link}" target="_blank" rel="noopener" class="article-row">
+            <div class="a-meta"><span class="a-origin ${a.origin}">${a.origin}</span>
+            <span class="a-source">${a.source}</span><span class="a-date">${a.date}</span></div>
+            <div class="a-title">${a.title} <span class="a-arrow">↗</span></div></a>`;
+    });
+    panel.innerHTML=`<div class="right-header"><div class="right-topic">${g.topic}</div>
+        <div class="right-count">${g.count}건의 관련 기사</div></div>
+        <div class="article-list">${h}</div>`;
+}
+if(D.length>0)selectTopic(0);
+</script>
+</body>
+</html>
