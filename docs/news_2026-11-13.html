@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>카카오페이손해보험 뉴스 브리핑 - 2026년 11월 13일</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg:#f5f6f8; --white:#ffffff; --border:#e8eaed;
+    --text:#1d1d1f; --text2:#6e6e73; --text3:#aeaeb2;
+    --accent:#1d6ce0; --accent-bg:#eef4fd; --accent-border:#c5d9f5;
+    --hot:#e8453c; --hot-bg:#fef2f1;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text)}
+
+.app{height:100vh;display:flex;flex-direction:column}
+
+/* Header */
+.hdr{padding:16px 24px;background:var(--white);border-bottom:1px solid var(--border);
+      display:flex;align-items:center;justify-content:space-between;flex-shrink:0;flex-wrap:wrap;gap:8px}
+.hdr-l{display:flex;align-items:center;gap:10px}
+.logo{width:32px;height:32px;background:#fee500;border-radius:7px;
+       display:flex;align-items:center;justify-content:center;font-size:16px}
+.hdr h1{font-size:16px;font-weight:700}
+.hdr-r{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--text2)}
+.period{background:#f8f4e8;border:1px solid #e8dfc0;color:#8b7a3c;
+         padding:3px 10px;border-radius:14px;font-size:11px;
+         font-family:'JetBrains Mono',monospace;font-weight:500}
+.stat-n{color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:600;font-size:14px}
+
+/* Main */
+.main{flex:1;display:flex;overflow:hidden}
+
+/* Left panel */
+.left{width:380px;min-width:320px;border-right:1px solid var(--border);
+       background:var(--white);display:flex;flex-direction:column;flex-shrink:0}
+.left-title{padding:14px 20px 10px;font-size:12px;font-weight:600;color:var(--text3);
+             text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border);flex-shrink:0}
+.topic-list{flex:1;overflow-y:auto}
+
+.topic-item{padding:14px 20px;border-bottom:1px solid #f2f3f5;cursor:pointer;
+             transition:background .1s;display:flex;align-items:flex-start;gap:12px}
+.topic-item:hover{background:#fafbfc}
+.topic-item.active{background:var(--accent-bg);border-left:3px solid var(--accent)}
+
+.topic-count{flex-shrink:0;min-width:32px;height:22px;display:flex;align-items:center;
+              justify-content:center;border-radius:6px;font-size:11px;font-weight:700;margin-top:1px}
+.topic-count.multi{background:var(--accent);color:#fff}
+.topic-count.hot{background:var(--hot);color:#fff}
+.topic-count.single{background:#f0f0f2;color:var(--text2)}
+
+.topic-info{flex:1;min-width:0}
+.topic-name{font-size:13px;font-weight:500;line-height:1.5;
+             display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.topic-sources{font-size:11px;color:var(--text3);margin-top:3px;
+                white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Right panel */
+.right{flex:1;background:var(--bg);display:flex;flex-direction:column;overflow:hidden}
+.right-empty{flex:1;display:flex;align-items:center;justify-content:center;
+              color:var(--text3);font-size:14px;flex-direction:column;gap:8px}
+.right-empty-icon{font-size:36px;opacity:.4}
+
+.right-header{padding:18px 24px 14px;background:var(--white);
+               border-bottom:1px solid var(--border);flex-shrink:0}
+.right-topic{font-size:16px;font-weight:700;color:var(--accent)}
+.right-count{font-size:12px;color:var(--text2);margin-top:3px}
+
+.article-list{flex:1;overflow-y:auto;padding:8px 0}
+.article-row{display:block;text-decoration:none;color:inherit;padding:14px 24px;
+              margin:0 12px 6px;background:var(--white);border-radius:10px;
+              border:1px solid var(--border);transition:all .15s}
+.article-row:hover{border-color:var(--accent-border);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.article-row:hover .a-title{color:var(--accent)}
+
+.a-meta{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.a-origin{font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;color:#fff}
+.a-origin.구글뉴스{background:#4285f4}.a-origin.네이버{background:#03c75a}.a-origin.전문매체{background:#f09000}
+.a-source{font-size:11px;color:var(--text2)}
+.a-date{font-size:11px;color:var(--text3);margin-left:auto}
+.a-title{font-size:14px;line-height:1.55;transition:color .12s}
+.a-arrow{opacity:0;margin-left:3px;font-size:11px;transition:opacity .12s}
+.article-row:hover .a-arrow{opacity:1}
+
+/* Empty state */
+.empty-full{flex:1;display:flex;align-items:center;justify-content:center;
+             color:var(--text3);font-size:14px;flex-direction:column;gap:8px}
+.empty-full-icon{font-size:44px}
+
+/* Mobile */
+@media(max-width:768px){
+    .main{flex-direction:column}
+    .left{width:100%;min-width:auto;border-right:none;border-bottom:1px solid var(--border);max-height:45vh}
+    .right{max-height:55vh}
+    .hdr{padding:12px 14px}
+    .hdr h1{font-size:14px}
+}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#d0d0d4;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="app">
+    <header class="hdr">
+        <div class="hdr-l">
+            <div class="logo">📰</div>
+            <h1>카카오페이손해보험 뉴스 브리핑</h1>
+        </div>
+        <div class="hdr-r">
+            <span class="period">2026.11.13 08:00 ~ 2026.11.14 07:59</span>
+            <span><span class="stat-n">39</span> 기사</span>
+            <span><span class="stat-n">23</span> 토픽</span>
+        </div>
+    </header>
+
+    
+
+    <div class="main" >
+        <div class="left">
+            <div class="left-title">토픽 목록</div>
+            <div class="topic-list" id="topicList"></div>
+        </div>
+        <div class="right" id="rightPanel">
+            <div class="right-empty">
+                <div class="right-empty-icon">←</div>
+                <div>왼쪽 토픽을 선택하세요</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const D=[{"topic": "신입", "count": 9, "articles": [{"title": "토스인슈어런스, 연말까지 신입 보험설계사 육성 지원…위촉시 500만원 지급 - 전자신문", "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFAzNFF0bWhWRWVDVlNmT3pobXU4NXFsXzZMbElKTjZISGNkZGcybWk2RDFlUXE5a3prYUlLWkY0OUtKM3drRmNZejc5QzlHdw?oc=5", "source": "전자신문", "date": "2026-11-13 09:16", "origin": "구글뉴스"}, {"title": "토스인슈어런스, 신입 설계사 위촉 시 500만원 지원…육성 프로그램 운영 - 신아일보", "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8weW1UN19SM0tnT05yNDltazhOdHVJU3puaVhjdzZnam1hODNMQmNaaUNzem5FZkxqaFJNeGJMc1lhUnoxUEhySWxSNDh4Q25kR3pUZEJtVkM1M2NXQ1BzYTRia1F2SXYwejZQa01RMVg?oc=5", "source": "신아일보", "date": "2026-11-13 11:08", "origin": "구글뉴스"}, {"title": "토스인슈어런스, 신입 설계사에 500만원 지원…초기 정착 지원 - 라이센스뉴스", "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1Sb3J6S1UzTHA3NWFOSFRPSzF5bU9LVmZYVFNuUk5LWjBieHBMbjh3bWgxSlFqaERBbHNlS0w0ajFFVUNKajZWZzVoRVA3aHNvRXo5U0tQdG5MQUI5cUx3dlgwalI4eHUxMjNz?oc=5", "source": "라이센스뉴스", "date": "2026-11-13 09:10", "origin": "구글뉴스"}, {"title": "토스인슈어런스, 신입 설계사에 육성지원금 500만원 지급 - 파이낸셜투데이", "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE40LU9XLUgwdWFWRDVwUzZsMXhXZEN5X0VCWENkTlJNUGRJdnUyZXFfSGt2UENlYnZQREw1WWs4VzI0ZGswWjRWSU56MzdYeHFOTVFHTjNObGZ3OHFUcWF5Q3hSTFBOYzJTSlHSAW5BVV95cUxQSU55NktLMm95YzBUdWRIcTFnOEdsbmtkWGhWUzZPNW9JLVJlYkplTGNESUUzTUtreS1iME4xbkx1bTlUbFhmclRFdE5jNC1vbi11UFBFb2QzbTIzRGtYQmdITWtCdFpicDF5MDJvZw?oc=5", "source": "파이낸셜투데이", "date": "2026-11-13 09:19", "origin": "구글뉴스"}, {"title": "토스인슈어런스, 신입→직영 위촉 설계사에 육성지원금 500만원 - 글로벌이코노믹", "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNZURFU0tiVldfM1gxaGY0ckRoNzExaHNlY3Jjb1BMQWlSa0NlTzREQlBiWFI3WnRxLXBlRlM3UmprbnkzZzR0UncwN3RtNVRvS3JMUThUY3dLT190Z3hmSHJ1bmZjZTJBajRMR0ZFczkwZjE3bk9HTFpUWld6NjFWcWxCd0M?oc=5", "source": "글로벌이코노믹", "date": "2026-11-13 09:16", "origin": "구글뉴스"}, {"title": "토스인슈어런스, 신입 설계사에 500만원 지원 - 포인트데일리", "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1MbXJMcnprdzRWcV9wSzB4TVhlbl9pUGg4VnBnbVhHM2txblVfUTZaN2lpR1ExSmtlTkJ0dGdIS2dCWjBCV0tRRnlKU0lXZzJNZHF1c3RqbVRNMk5FSmlnaWx2OXhVbF9uQ0JXODl2WkrSAXRBVV95cUxQcnBiemdJZm1MTVQtUkdWa1RxZHp5bmZrcVJPUDIzcnNSSHlKX0pKYVV0Vjkza2ZxQzVBdEQybUg4ZDdDby1NLU8xYTlDRmhuQmlxMFh0dG9XLUNSdU9SWDJaYk9CbHc3c3JiWHFrWFk5UGZMSw?oc=5", "source": "포인트데일리", "date": "2026-11-13 09:17", "origin": "구글뉴스"}, {"title": "토스인슈어런스, 무경력 신입 설계사에 육성지원금 500만원 지급 - 컨슈머타임스", "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1vYVdfOGhKNHJrRXpEMEhiQVlhd1pJQWw2Tl92SzAyczNwc0o2YmlzRmFvU0EwdU9PNXBNcFRCLS04S1NVb3hmUHJ1NFpuekFkT0FaczU3ZjF4cWg5eTJSUmpGRlI4TnFPMnc?oc=5", "source": "컨슈머타임스", "date": "2026-11-13 11:19", "origin": "구글뉴스"}, {"title": "토스인슈어런스, 앱 기반 &#39;온디맨드&#39; 보험영업 확대…신입 설계사에 500만 원 지원 - 이코노미사이언스", "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBKbW9KRlczUFJvcnd0WEVDY3pKOTVRbU55MUtfeDlBY291Z2JuN3lVLW9QX1BaMnFFZDR1TDg1ekFZZ3dkS2tBalcxQmU4ZFpadkFEYTlDbTFKRjBmSnR4dFg0OGdQRzFiNW5rTVdCYw?oc=5", "source": "이코노미사이언스", "date": "2026-11-13 11:04", "origin": "구글뉴스"}, {"title": "토스인슈, 신입 설계사 육성 확대…정착지원금 500만원 지급 - SBS Biz", "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9tY3RUaS1lck5sWUdiWXNIMVFTaHZkaVFlb0N2UC1PYVJmcXpKSEpCc1ZadlNibnJMUkc4VTNsMExFbm1uZkswSDE3a0dKZFVmUEJB0gFYQVVfeXFMUHhUTzZJYVU0WmZxS011OEVTcUVKUDNXY1h6a3dWVnItbDJnZVEweHRxbmJSTkNsUlhYM3BEY3Q3Z0JrWWtaQ0p4c1UwWHJxTFU1UTNsV19SaA?oc=5", "source": "SBS Biz", "date": "2026-11-13 10:38", "origin": "구글뉴스"}]}, {"topic": "유출 카카오워크", "count": 3, "articles": [{"title": "카카오워크 해킹… ‘종단간 암호화’ 적용했지만 업무정보도 유출 - 보안뉴스", "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBVWk1aRWJWYzhZbDlTaXpNRWF0NzV4NE5MaHc5QjhqRmNLYjNvU2V1X1NGQXBsdU8zUnd0MmdqLU9DYzc5S3FIZ1dOa01jSGFWTVd2SnBmQXctcmMyWGE3Q3lWZUJTNk5VNVlJ?oc=5", "source": "보안뉴스", "date": "2026-11-13 10:36", "origin": "구글뉴스"}, {"title": "카카오 기업용 메신저 ‘카카오워크’ 해킹…메일 내용·첨부파일도 유출 - 동아일보", "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB0dS1qcVQ2ajFvUnMwNzBSdUg4RFNCelNzeFE2VEJ4TVJnTlVBdlVlVmttaU1TcjBiSmJWaVAzS0FoQUQySUtLcmRVazAweHpWNGhLaVVQd20ybzc0QmtNWlVEalR2cHNVWHBHYWhKakdSbkR2TXfSAWZBVV95cUxQa3h0SHB4RG9LUHdjbWdXeURZNVk0Y01zektEbXRfaVpOYk5oaklMZVE1OXJkUXBKbGMzeXJReUhVMTF3c0JPUC1GZEltUVY3LXVuTUtBdDRmcDF1ZWdYdEtQRVl0WlE?oc=5", "source": "동아일보", "date": "2026-11-13 11:37", "origin": "구글뉴스"}, {"title": "업무메신저 ’카카오워크’ 해킹에 개인정보 유출…이름·연락처 등 노출 - 연합뉴스TV", "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1yREF3eGZzYzM3Ylh1d19Fc2xkQzgxSVJ3X3dSdzlkbWN2MlNIMFBiT1B4UGg5NzdmZjItX0hUeUl3V2otQ2M0aUdqQ1hrT3BhZEhlUVlEY0VvNUQ2dXpsNmRLU2dBcFE?oc=5", "source": "연합뉴스TV", "date": "2026-11-13 11:23", "origin": "구글뉴스"}]}, {"topic": "DB손해보험 자동차보험", "count": 3, "articles": [{"title": "KB손해보험, 11월 자동차보험 브랜드평판 빅데이터 1위…DB손해보험·현대해상 순 - 빅데이터뉴스", "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE0tUnlCNmFqdWE2aG56SHhzN1M0UmFyODBjSjZZb3ZlSHFWRHJsTVpYZ204bUxWbmEzTDJTM3FJeUNGbjlGcXdGSXlUMzU3RHY4SHFpZWFKaGxRendhWk5CTEhXUnB1aU9UQTFtVHJHdjVfZzlkX19KN2FKRQ?oc=5", "source": "빅데이터뉴스", "date": "2026-11-13 08:26", "origin": "구글뉴스"}, {"title": "자동차보험 2026년 11월 브랜드평판...KB손해보험, DB손해보험, 현대해상 順 - 에너지신문", "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFAzWFc4TVo3dWxDSklYSVo0b2hLdGhLd1AzcjRsbVpJNDhETk1vUjhGaGNUTW5LOExEakZZUHN6WHMyZV9jMTc2TEhmdi1rMWhOQUlDc215NUtGSXd6bTFpOHZwclJ6MURfWUxNLURZbF9LUQ?oc=5", "source": "에너지신문", "date": "2026-11-13 10:03", "origin": "구글뉴스"}, {"title": "DB손해보험 자동차보험 흑자 전환…투자손익은 왜 줄었나 - 자본시장뉴스", "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9PaTBTNnE1SzRuZGF6bDlFcHRPdHRoX2YzTTVWdFlJMmxYRmpmQkVfcXl0Ulpia2oxbnBqOXBvQzNBT3EtaWN5dXdrNUJjclBCa1FLNFJqMk5jdHRoZXA4VVlHUVFyOGM?oc=5", "source": "자본시장뉴스", "date": "2026-11-13 10:30", "origin": "구글뉴스"}]}, {"topic": "KB KB손해보험 집 희망의", "count": 3, "articles": [{"title": "KB손해보험, 제천 옹달샘그룹홈에 60번째 &#39;KB 희망의 집&#39; 조성 - 오늘경제", "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5qVi1kc2plVUY5Yi13bjZRTXRkbHFxaXltS3FyYU54cHVrNzN2ZTI2ZkVhdXhfVmwxc0pvYnpfSlBJWU1mQkMwYko4NVFVXzBjaV9LTEJWWlNSZ2FvSVcyaTlDYWtnTmZ3M2xRbHc1eWp2RE0?oc=5", "source": "오늘경제", "date": "2026-11-13 10:43", "origin": "구글뉴스"}, {"title": "KB손해보험, ‘KB 희망의 집’ 60호 조성… 아동 주거환경 개선 - 이코리아", "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBuVXlMa0p6azB1cUxxY0JxdzFETGZaYW1VV3NnWjlVak1YZ3ZPdmYyUGR1Sk9aZlpVbnlVMWxWTFV1MXVZMHFXWkpPNFB6SWNrMTg2a2ZmRjZsUUludlEzdTQweGlpbkpaSEM5WmQ5cw?oc=5", "source": "이코리아", "date": "2026-11-13 09:57", "origin": "구글뉴스"}, {"title": "KB손해보험, &#39;KB 희망의 집&#39; 60호 완공 - PRESS9", "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1rT1A0eURKajM3YnY4YUtZRlRaSkxuTE9URzNsWVlVUG5OMGo2aFNPdHV6RFpUWHU4VXhPT3JYXzRrcW54YVE5TldoZzZEV2pKd2w3VUR2cnFlLU5wMC1kNXhHbGk?oc=5", "source": "PRESS9", "date": "2026-11-13 09:50", "origin": "구글뉴스"}]}, {"topic": "000원 리포트 목표가 브리핑", "count": 2, "articles": [{"title": "[리포트 브리핑]카카오, &#39;본업 이익 성장과 AI 투자회수의 교차점&#39; 목표가 44,000원 - BNK투자증권 - 뉴스핌", "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE52Wmg4LTBoRk5HRFhWdi1ZUGh4bHZ1SndPU3FmVnpWSVFoazdZZGZScF9UcEZOcXI1UDFnSWw5UjNUVFZ1VVlDTHA3dTZ4TGNvczBPR0g5OGtlOEFx?oc=5", "source": "뉴스핌", "date": "2026-11-13 08:34", "origin": "구글뉴스"}, {"title": "[리포트 브리핑]DB손해보험, &#39;경상수익성 개선과 주주환원 확대 병행&#39; 목표가 230,000원 - LS증권 - 뉴스핌", "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE05T1ZFZGY5RFg3MHZTSHFNXzhmeVlJeXNxODJqOFMwSkIwRV8zbkhabHIyM2czZ0RoR1VfUnNXSm9la0M4QWNKMmxzbkJyeWNlUU9hdjBTcmpRakpY?oc=5", "source": "뉴스핌", "date": "2026-11-13 08:35", "origin": "구글뉴스"}]}, {"topic": "네이버 프리미엄콘텐츠", "count": 2, "articles": [{"title": "11/13(금), 오늘의 투자전략 - 네이버 프리미엄콘텐츠", "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBSZHJWZE54QWFHRVVhZEpQWUtNbEdWN1FoSFItOTJmMHVWRlFpRkZRd0tKNlJmNHRGMVhEWE9BTmlsTnRzMDRRU01uQ0NTcFhaekdTMGxpYlBCX1lQSGM2XzhJUmpmZEwwZWZuSkptdHlqdVVja2Mzak5rUzk0dw?oc=5", "source": "네이버 프리미엄콘텐츠", "date": "2026-11-13 08:10", "origin": "네이버"}, {"title": "[특허] 적응광학 기능이 통합된 고속 비행체용 IR 광학창 - 네이버 프리미엄콘텐츠", "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNd1hjY0JPQ2p3M2JJRjVDM0kyd2w0Z0hmazVOWGw0QXYwZmZoZWNObFFOZjFNVDhsRUdkbEF0MWxkSnJhSE9oc1pvamtFNFJRMGlGYzZ0dGFuek1qc2ZkQ01FV2RVeVpFZFFOTVJzUVp6OUsySmRiSHRQaElKUmFQZks3V0g?oc=5", "source": "네이버 프리미엄콘텐츠", "date": "2026-11-13 11:00", "origin": "네이버"}]}, {"topic": "카카오게임즈 &#39;도깨비의세계&#39; 출시 한달 추정 매출 400억원", "count": 1, "articles": [{"title": "카카오게임즈 &#39;도깨비의세계&#39; 출시 한달 추정 매출 400억원 - 매일경제 마켓", "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBtdnhEeUE1eFZUSVdrbEVrdG9Nb3hVeFZWR0hXUElLTlFNdVQ5RlpPTU1LS0pUNkpPY2wtU1c2LWM5M25nZGV0RlJBdjh1N1M0MGc?oc=5", "source": "매일경제 마켓", "date": "2026-11-13 09:11", "origin": "구글뉴스"}]}, {"topic": "[장중수급포착] 카카오페이, 외국인/기관 동시 순매수… 주가 +1.38%", "count": 1, "articles": [{"title": "[장중수급포착] 카카오페이, 외국인/기관 동시 순매수… 주가 +1.38% - 뉴스핌", "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5ZWXYzMjB4RVlvWXctdEFpRm82MngxbXJIUWVGVFJKRW51aTVNYm1BRTVDVzFYN1VBRkxIYTZPZGI0d0NLLTg5RDVTRU5JUlZOZXpEdlpRbFZKdF9M?oc=5", "source": "뉴스핌", "date": "2026-11-13 10:27", "origin": "구글뉴스"}]}, {"topic": "카카오페이증권, AI 이상거래탐지시스템 가동…주식·환전까지 탐지 확대", "count": 1, "articles": [{"title": "카카오페이증권, AI 이상거래탐지시스템 가동…주식·환전까지 탐지 확대 - 더퍼블릭", "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBwR2ZtVEFtMFZFN0hrTGVqVEVwQXlJeXk1YllYclNiaEd4WjQxeGtCYnBRRlBPTW9SdGRnQlBBYnZ6OEQwTWFySkMxVHJaUG5RRkNjMFJaOVpES1ZMSjBBZDMtUmJGajFlenZZ0gFvQVVfeXFMUDQ0WmFtTHk3cDZHaU1jVmQyU0RjWXBORU1hS1FPSklWNHdrZmtXZ1l6bHpBRXdERWgxUkNHUklXMWhWOHhMZ0syNFhORWpVTVdVZUxwS0NGX213VHhuM0lZdko0OVdCX1dmTlQzNDV3?oc=5", "source": "더퍼블릭", "date": "2026-11-13 09:01", "origin": "구글뉴스"}]}, {"topic": "[단독] DB손해보험, 괌·사이판 법인세 84억 환급소송 대법서 최종 패소", "count": 1, "articles": [{"title": "[단독] DB손해보험, 괌·사이판 법인세 84억 환급소송 대법서 최종 패소 - 필드뉴스", "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBfR0JGRTlHRmhvZDk3bHpuVGFuR2xzaGNzbXZMakpScVJ5YmtiUlpyQV9qaXdTTXZwcUpfaElqVXlIdWZjNEhrWmlYQ0RUOWczY0NVWVZXejZPc0prcENrdURCeXZrVXRT0gFsQVVfeXFMT01ycFh6Wm9nVGoxZFdGTWlKcno0Z1hJT05oNWNFT0Y2V25CcndGd0dlVXFrLWZQSmRtNjdyNlAyYVJQRGVZMHRqYWRTMzNBWmVHYkpBQktZYlNGaVhMajUyUC1LbHRKNTg0VjBh?oc=5", "source": "필드뉴스", "date": "2026-11-13 09:00", "origin": "구글뉴스"}]}, {"topic": "“지인 영업 부담 덜고 상담만 집중”… 토스인슈어런스, ‘2030이 60%’ 신입 설계사 판 키운다", "count": 1, "articles": [{"title": "“지인 영업 부담 덜고 상담만 집중”… 토스인슈어런스, ‘2030이 60%’ 신입 설계사 판 키운다 - 보험저널", "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1yV3k4cDEyMkNJVV9iN08xMWJxb3ZrZXhobVBndWxaRnVzRkZtUk1kQWNZWkxvbXNYQU9GNTFBU3BUamp2SC1PLTg3SGlWbHU5WGpLenNBblo1Mm9yVTdaUTA3WXdZSEJGcFhzTWdIaw?oc=5", "source": "보험저널", "date": "2026-11-13 08:46", "origin": "구글뉴스"}]}, {"topic": "금융권 해킹 잇따르자 금감원 3.3억 &#39;보안 투자&#39;", "count": 1, "articles": [{"title": "금융권 해킹 잇따르자 금감원 3.3억 &#39;보안 투자&#39; - 세이프타임즈", "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBkUThTZ3FITU1GVXlITTlQVTVTVkhSZUR4LWY1ajBoX0RfU1BLSHFTQ2l4cERfanFLMWxSSjdEOUNWU3JYVFFEamEwUXByaGNZRFBZVWtZNG81QVVGSzlHOXQwQVgxdloySTViRmltZ9IBc0FVX3lxTE45Q3ByS2h1X3ZhLVVOcHlxSENSbjFmamdpNUtma2I4RzVPUjhQbnZrWkc3NUkteGVLb1R5eG9DV2dUVGp0QU52VmNTTHprdDIxVTc5dm5VUWRXNnFUd2dqY1hQY3BlZW9NZ0J6OTdNQTJXek0?oc=5", "source": "세이프타임즈", "date": "2026-11-13 09:46", "origin": "구글뉴스"}]}, {"topic": "[현장에서]금감원 또 &#39;OB 접촉 경계령&#39;…연말 인사 앞두고 술렁", "count": 1, "articles": [{"title": "[현장에서]금감원 또 &#39;OB 접촉 경계령&#39;…연말 인사 앞두고 술렁 - 비즈워치", "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE03S0oyVmJkX05Tbk5pV0ZLRFFTc2tFV1o4eUZLYVdfZmc4VFlxWHM5UTNtQmZ4ZjJkZ1FfZnpKZXNKYldpX1BuR25pVWRtRGtfS3I4ZDZqUDFmRUtTWE95U2hRSDBwWUVIWDgw?oc=5", "source": "비즈워치", "date": "2026-11-13 08:00", "origin": "구글뉴스"}]}, {"topic": "금감원, 대형 증권사에 &quot;발행어음 단기금융 리스크 관리해야&quot;", "count": 1, "articles": [{"title": "금감원, 대형 증권사에 &quot;발행어음 단기금융 리스크 관리해야&quot; - 글로벌이코노믹", "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPSUU4Vy02ZV95TEdxNjZubUZTMWg4M1B3SFM1V0hZYmI1bEZmQVVhUWl6VUhqeWdPN1MybW4xRkZNMWpuRjJ4aFRvVDZxZTlpNDBraXZXcDF1b19wUjlSWFJxNnJCMlRtRTVjemNwX0FvN0d0NEVMZXNPcU5ZZXUtbTZQbVo0RDBk?oc=5", "source": "글로벌이코노믹", "date": "2026-11-13 09:19", "origin": "구글뉴스"}]}, {"topic": "렌터카업계 &quot;캐피탈 렌탈 한도 확대 근거 달라&quot; … 금융위에 철회 요구", "count": 1, "articles": [{"title": "렌터카업계 &quot;캐피탈 렌탈 한도 확대 근거 달라&quot; … 금융위에 철회 요구 - 뉴데일리", "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1BTmJHMlM4NFA3Z3lOWkJYUHJMeDBkdXJxeVpGMm93ekx4aHdDZ0pVLTdVckxQYWFkMWZEUzk3LTRHNk5mUUd2R0tvSTU1MkUwbktEUWVhQUhLVG9mUzRFdjJ6OUtUbUVWTjlsMkpOOThIYmEyMjVWYUw1NNIBgAFBVV95cUxQai1MMzVjTUMxbXVqeHgzYzJORzJjVUNnYzRfZjVrai1mN0xVeXdveTFVOVhFZzFXdkMwNDNuWWF6b0RBSndoRFVfMTM1MHExMzAySVg0WGpDQ0VQbnhick9UVWV4SXVkeUdlRzJCTEdCeXVJdFVWLS1RNG1manZsSQ?oc=5", "source": "뉴데일리", "date": "2026-11-13 09:54", "origin": "구글뉴스"}]}, {"topic": "&quot;90% 찬성도 수두룩&quot;…금융지주 회장 연임 규제 실효성 도마", "count": 1, "articles": [{"title": "&quot;90% 찬성도 수두룩&quot;…금융지주 회장 연임 규제 실효성 도마 - 더팩트", "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA5MHV4dEVVNVo0eEd4OGlXWmZOc3c3eE9KSG04aWxOam5TWWdKU2ZDR2Q2Sk5RdHRmS3JicHF1Qm5yX1NsVjZNNlJ4SVNRR2FzY2xmVkxnYUFtZ9IBVEFVX3lxTFBScmJLSEVnMFY1RDR6TG91Mlh5a1djUVY3NkdOaFJBZy1iMV9uNkFwLUdOQ2xhYWlzNGgwN0pBWXZzQlQ4enluTUhQVkc0eHZ4Y0NYdg?oc=5", "source": "더팩트", "date": "2026-11-13 11:29", "origin": "구글뉴스"}]}, {"topic": "하나은행, 금융위 기술금융 평가 대형 1위…부산은행 소형 1위", "count": 1, "articles": [{"title": "하나은행, 금융위 기술금융 평가 대형 1위…부산은행 소형 1위 - 부산일보", "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBxcUFuS2NKT2VoNDdYSlR5MGhQSGZOOHN6YlBwbTZJUkVibV8zMFI4aWNVNU9Ia003ZnBjMkFXcnJ4X3FwYTA0UHNEMEtEMzNJWWw0Rnp4cTF2QS0xR1FiRFJfeW9fSncwN2VhMWJDS01mVl9h?oc=5", "source": "부산일보", "date": "2026-11-13 10:09", "origin": "구글뉴스"}]}, {"topic": "9월 M2 통화량 17.1조원 증가… 증가율 3개월 연속 둔화", "count": 1, "articles": [{"title": "9월 M2 통화량 17.1조원 증가… 증가율 3개월 연속 둔화 - Chosunbiz", "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQNHZ3b29RZE5PZ3NxUldjMTlDX0VjSWFhNGdGcDc3Y3N0dHFpQjdUYkZsa0dYVE1aNmVKcXo3cFA5V1pyNGpmMHA1RzNkQ1UwbFdVbEk2SVV0dktjQUJQZHU5QzRSdEc1RlFSMUdJMGFFTXhUdHNfRkFISEwwLTZnSjFXdlphUdIBmgFBVV95cUxNMzd5aGk3NjZFZU13VThybkhsR1BqN0ZHdUZFeWJiQTdWYlZ5TTUyemtfRmphNmctMERqZkk5ZXE4RUV5NUZ3Z2pGYzJtQk9wZ3ZKNENvNkcwVG15dVRiRHJSdFRSTG0zQi1SWWpuUDJXTDR4ZUVSb0xGNXhIT0NwcVRpOVNmSkMzazNXcnh6Yk0tcnJUNjBhWjZB?oc=5", "source": "Chosunbiz", "date": "2026-11-13 12:00", "origin": "구글뉴스"}]}, {"topic": "“AI 거품 꺼지면 한국 고통스러울 것…언제일진 몰라”", "count": 1, "articles": [{"title": "“AI 거품 꺼지면 한국 고통스러울 것…언제일진 몰라” - 헤럴드경제", "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9oR2lpZEliYTJTcS1LUzV0eE1sd0k3bXE4ckpHWnczYTVLdTAzdXBkcmhudThYX0oxa2IxQlA2V29SWWNMaU41RGJJNXBrRFhKWmhQUERB?oc=5", "source": "헤럴드경제", "date": "2026-11-13 11:28", "origin": "구글뉴스"}]}, {"topic": "코스피, 한 달 새 23% 급락해 세계 주요 증시 중 낙폭 1위, 외국인 자금도 9개월 연속 유출 📉", "count": 1, "articles": [{"title": "코스피, 한 달 새 23% 급락해 세계 주요 증시 중 낙폭 1위, 외국인 자금도 9개월 연속 유출 📉 - 뉴닉", "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE83RDFIM1ZKZkZRZ1VDUmlUTVREczZ5blpNV1hJaDBIMHU1WlNjdDFIcUlLQVRpUnJkLVlNRkNWQ2w2OG15c1MxbHM5UFY0SzRMLVd3?oc=5", "source": "뉴닉", "date": "2026-11-13 09:31", "origin": "구글뉴스"}]}, {"topic": "환율·유가 하락에 10월 수입물가 1.8% 내림세… 수출물량·교역조건은 역대 최고", "count": 1, "articles": [{"title": "환율·유가 하락에 10월 수입물가 1.8% 내림세… 수출물량·교역조건은 역대 최고 - 서울뉴스통신", "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5ackluMlYtRWwwdVBDek53T0Uwcl9WV0tXeG5yOFRYQnRVSk5TbzhSOURya1dYUVpqOUNSTUtHNUpjbGxKSTRPeHN3M3lSRkwyM2Z3NGcxRENPY1hUdzdGRjZjcVFJQmNUNnow?oc=5", "source": "서울뉴스통신", "date": "2026-11-13 08:33", "origin": "구글뉴스"}]}, {"topic": "반도체 수출 자금 유입 지속…9월 통화량 전년보다 5.5% 늘어", "count": 1, "articles": [{"title": "반도체 수출 자금 유입 지속…9월 통화량 전년보다 5.5% 늘어 - 조선일보", "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQYXVSdnc5NGRMWUtUbDNMY0RBOG9vLV9fN2d5Qm9IcjB4VUVGOFozVzdXS1c3ME5ydURmNUU4eFNoX2RQSlg5aVdDUDhOaVdqdjQtbjViLUNDQXpXZmpQdXM0NTd3dHB1MVNNRzJDSVpDTXZoNHV3ck1XMEdHb0tJMWRvVXhrbnpsbWpXeVNB?oc=5", "source": "조선일보", "date": "2026-11-13 12:04", "origin": "구글뉴스"}]}, {"topic": "[컨콜노트-전체공개] 삼성증권, 3분기 순이익 3,528억 원 및 금융상품 판매 수익 57% 증가", "count": 1, "articles": [{"title": "[컨콜노트-전체공개] 삼성증권, 3분기 순이익 3,528억 원 및 금융상품 판매 수익 57% 증가 - 네이버 프리미엄콘텐츠", "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQS1lTb0twbVVxRVhqaHFTT1V5eG45ek15Rkt1MVpSazF4MC1TQnoxd2ZVNWFTY1k5LW5xVXRGOENnRWUyQzBoWnAwcnlrbnpyMVV6cmhsTWJacEZ2UzhCeE1OZk9OcHdJRmNLc09mRmRJMnFfTnZGVkhZa1NiQ1M4UUNn?oc=5", "source": "네이버 프리미엄콘텐츠", "date": "2026-11-13 10:20", "origin": "네이버"}]}];
+const list=document.getElementById('topicList');
+D.forEach((g,i)=>{
+    const div=document.createElement('div');
+    div.className='topic-item';
+    div.onclick=()=>selectTopic(i);
+    div.id='topic-'+i;
+    const cc=g.count>=5?'hot':g.count>1?'multi':'single';
+    const src=[...new Set(g.articles.map(a=>a.source))].slice(0,3).join(' · ');
+    const tn=g.topic.length>45?g.topic.slice(0,45)+'…':g.topic;
+    div.innerHTML=`<span class="topic-count ${cc}">${g.count}</span>
+        <div class="topic-info"><div class="topic-name">${tn}</div>
+        <div class="topic-sources">${src}</div></div>`;
+    list.appendChild(div);
+});
+function selectTopic(idx){
+    document.querySelectorAll('.topic-item').forEach(el=>el.classList.remove('active'));
+    document.getElementById('topic-'+idx).classList.add('active');
+    const g=D[idx],panel=document.getElementById('rightPanel');
+    let h='';
+    g.articles.forEach(a=>{
+        h+=`<a href="${a.link}" target="_blank" rel="noopener" class="article-row">
+            <div class="a-meta"><span class="a-origin ${a.origin}">${a.origin}</span>
+            <span class="a-source">${a.source}</span><span class="a-date">${a.date}</span></div>
+            <div class="a-title">${a.title} <span class="a-arrow">↗</span></div></a>`;
+    });
+    panel.innerHTML=`<div class="right-header"><div class="right-topic">${g.topic}</div>
+        <div class="right-count">${g.count}건의 관련 기사</div></div>
+        <div class="article-list">${h}</div>`;
+}
+if(D.length>0)selectTopic(0);
+</script>
+</body>
+</html>
